@@ -5,9 +5,48 @@ wo6WbG9WZE4A
 CTF server: 10.50.186.5:8000
 
 
--S creates socket file, -M enables multiplexing
-Each time a master socket is created, the name must be different
-ssh -MS /tmp/jmp demo1@10.50.13.244 2>/dev/null
-- This is less noisy and creates less artifacts
 
-for i in {1..255}; do (ping -c 1 10.208.50.$i | grep "bytes from" &); done
+# Authenticate to next box -S creates socket file, M enables multiplexing
+  2 ssh -MS /tmp/jmp demo1@10.50.13.244 2>/dev/null
+  3 
+  4 
+  5 # From our next box, we can run a ping sweep
+  6 for i in {1..255}; do (ping -c 1 10.208.50.$i | grep "bytes from" &); done
+  7 ##output
+  8 #time for portscan
+  9 ## Dynamic portforward from linops
+ 10 ssh -S /tmp/jmp jmp -O forward -D9050
+ 11 proxychains nmap {range}
+ 12 
+ 13 10.208.50.1
+ 14 10.208.50.42
+ 15 22
+ 16 80
+ 17 proxychains nmap --script=http-enum 10.208.50.42 80
+ 18 
+ 19 # Connect to ports and hosts
+ 20 ssh -S /tmp/jmp jmp -O forward -L1111:10.208.50.42:22 -L1112:10.208.50.42:80
+ 21 ssh -S /tmp/jmp jmp -O cancel <port forward>
+ 22 
+ 23 10.208.50.61
+ 24 
+ 25 10.208.50.200
+ 26 10.208.50.230
+ 27 
+ 28 # verify socket file
+ 29   ss -ntlp | grep 9050
+ 30 
+ 31 #How to pivot again (has to be different name). This will go through the first socket to the other     machine's ssh port
+ 32 ssh -MS /tmp/jmp2 user@127.0.0.1:1111
+ 33 ssh -S /tmp/jmp jmp -O cancel -D9050
+ 34 ssh -S /tmp/jmp2 -O forward -D9050
+ 35 
+ 36 ssh demo1@10.50.13.244 -L2222:10.208.50.61:80
+ 37 127.0.0.1:2222/classinfo.html
+ 38 FFLL-201-M
+ 39 AUBR-201-M
+ 40 
+ 41  L 1111:10.208.50.42:80
+ 42 http://127.0.0.1:1111/
+
+                                                                                     32,10         93%                                    
