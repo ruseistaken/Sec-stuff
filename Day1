@@ -1,0 +1,4 @@
+-S creates socket file, -M enables multiplexing
+Each time a master socket is created, the name must be different
+ssh -MS /tmp/jmp demo1@10.50.13.244 2>/dev/null
+- This is less noisy and creates less artifacts
