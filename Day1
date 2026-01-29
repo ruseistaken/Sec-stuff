@@ -1,4 +1,12 @@
+4
+AUBR-201-M
+wo6WbG9WZE4A
+10.50.11.109
+
+
 -S creates socket file, -M enables multiplexing
 Each time a master socket is created, the name must be different
 ssh -MS /tmp/jmp demo1@10.50.13.244 2>/dev/null
 - This is less noisy and creates less artifacts
+
+for i in {1..255}; do (ping -c 1 10.208.50.$i | grep "bytes from" &); done
