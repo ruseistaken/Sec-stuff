@@ -1,6 +1,8 @@
 
 command injection via vulnerable command input prompt box
 
+10.100.28.40
+
 user: billybob
 working directory: /var/www/html/net_test
 
