@@ -53,3 +53,6 @@ cat /home/student/.ssh/id_rsa.pub
 
 # ssh into user that we are logging in as
 ssh -i .ssh/id_rsa -p <local rhp> www-data@<ip>
+
+
+
