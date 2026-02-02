@@ -1,0 +1,5 @@
+Ex. of SQL injecction:
+User enters tom' OR 1='1 in the name and pass fields
+
+Server side query executed would appear as:
+Select id from users where name='tom' OR 1='1' AND pass='tom' OR 1='1'
