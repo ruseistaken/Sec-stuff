@@ -1,0 +1,30 @@
+cd C:\Users\student\Downloads\demo1
+
+# -a for ascii, findstr /i for case insensitive
+strings.exe -a -nobanner .\demo1_new.exe | findstr /i enter
+
+strings.exe -a -nobanner .\demo1_new.exe | select -first 10
+#will provide file header to identify intended operating system for the malware
+#This program cannot be run in DOS mode- Windows
+#MZ - Linux
+
+# Behavioral Analysis
+Run the programs as intended
+
+#Skipping dynamic
+
+#Disassembly
+
+# Open Ghidra
+New Project
+Click file > import file
+By default: functions dissassembler, decompiler
+
+
+# START FROM THE END OF THE PROGRAM, SEARCH FOR "SUCCESS" etc.
+search > strings: search for desired strings, double clock results to see C
+
+# Patching
+Follow code, working backwards, identify potential ins or values to be changed
+When found, right click on instruction value, click patch instruction, then insert new value in.
+File > Export Program > format PE > change location > save and run it
