@@ -1,0 +1,6 @@
+if the box you are on does not have peda, scp the file over to the box
+
+disass <FUNCTION> # disassemble
+info  <...> 
+x/256c $<REGISTER> # read characters from specific register
+break <address> 
