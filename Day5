@@ -4,3 +4,8 @@ disass <FUNCTION> # disassemble
 info  <...> 
 x/256c $<REGISTER> # read characters from specific register
 break <address> 
+
+
+check day5 in vim for instructions and the python script
+sudo -l
+sudo ./instructions <<<$(python <script>)
