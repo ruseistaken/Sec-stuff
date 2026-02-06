@@ -1,0 +1,7 @@
+# Static analysis 
+strings.exe -a -nobanner <filepath> | findstr /i enter
+# -n specifies minimum string length
+strings.exe -a -n 5 -nobanner <filepath> | select -first 10
+
+Behavioral analysis:
+-need to know windows IP address
