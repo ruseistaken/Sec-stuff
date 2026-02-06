@@ -7,6 +7,7 @@ Behavioral analysis:
 -need to know windows IP address
 get-process | findstr /i vuln
 netstat -anop tcp | findstr <PID>
+kill 3928
 
 Dynamic Analysis
 Immunity > File > open > <file>
