@@ -1,0 +1,4 @@
+unset HISTFILE HISTSIZE
+
+ls -al /etc/cron*
+for user in $(cut -f1 -d: /etc/passwd - need rest of command from slack
