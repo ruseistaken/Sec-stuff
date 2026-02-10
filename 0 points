@@ -1,1 +1,2 @@
 x/gx $fs_base+0x28 shows value at address +0x28
+[rbp-0x8] - canary
