@@ -1,2 +1,5 @@
+https://grupooesia.com/en/insight/cookieness-bypass-de-stack-canaries-usando-format-string-vulnerabilities/
+
+
 x/gx $fs_base+0x28 shows value at address +0x28
 [rbp-0x8] - canary
