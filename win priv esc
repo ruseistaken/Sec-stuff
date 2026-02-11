@@ -8,3 +8,6 @@ take advantage of preexisting scheduled tasks or the registry to get malicious f
 
 auditpol /get /category:* | findstr /i "success failure"
 get successes and failures from auditpol, shows the policies that audit success or failure.
+
+
+custom views can be created in event viewer to receive certain info.
