@@ -5,3 +5,6 @@ to see services with no description, click description field in services gui
 
 take advantage of preexisting scheduled tasks or the registry to get malicious files to run
 -rename normal exe and paste the malicious file in designated location with old file name.
+
+auditpol /get /category:* | findstr /i "success failure"
+get successes and failures from auditpol, shows the policies that audit success or failure.
