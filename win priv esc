@@ -11,3 +11,10 @@ get successes and failures from auditpol, shows the policies that audit success 
 
 
 custom views can be created in event viewer to receive certain info.
+
+
+
+dll hijacking:
+downlaod putty and put it in a folder
+go to procmon, create your filters
+run putty 
