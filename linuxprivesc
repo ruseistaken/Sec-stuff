@@ -12,3 +12,14 @@ when going to clean log, ensure you have a copy and do the cleaning on the copy 
 
 check for remote loggin by looking for rsyslog daemon
 <facility>.<priority>
+
+dot in path demo:
+PATH=.:$PATH
+cd /tmp (globally writable directory)
+vim cat
+  #!/bin/bash
+  echo "meow meow meow"
+chmod u+x cat
+cat /etc/passwd
+- file is named cat (same name as normal command)
+- script will be run before the command is used depending on directory you are in (because of path variable)
