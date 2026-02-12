@@ -5,3 +5,5 @@ find / -type f -perm /2000 -ls 2>/dev/null GUID
 find / -type f -perm /6000 -ls 2>/dev/null SUID/GUID
 
 https://gtfobins.org/
+
+use SUID/sudo tabs depending on what privs are assigned
