@@ -7,3 +7,5 @@ find / -type f -perm /6000 -ls 2>/dev/null SUID/GUID
 https://gtfobins.org/
 
 use SUID/sudo tabs depending on what privs are assigned
+
+when going to clean log, ensure you have a copy and do the cleaning on the copy of the log
